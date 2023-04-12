@@ -19,45 +19,50 @@
 .card-title {
     text-align: center;
     font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;    
-        color: #0280FE;
-        margin-top: 25px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #0280FE;
+    margin-top: 25px;
 
 }
 
 .form {
     margin-top: 30px;
 }
+
 .form .form-input {
     margin-bottom: 20px;
 }
+
 .form-input div {
     margin-bottom: 5px;
 }
+
 .form-input {
     height: 78px;
 }
+
 .form-input label {
     font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 13px;
-        line-height: 30px;
-        /* identical to box height */
-    
-    
-        color: #948E8E;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 30px;
+    /* identical to box height */
+
+
+    color: #948E8E;
 }
+
 .form-input input {
     border: 1px solid #002777;
-        border-radius: 15px;
-        width: 433px;
-        height: 40px;
-        outline: none;
-        padding-left: 10px;
+    border-radius: 15px;
+    width: 433px;
+    height: 40px;
+    outline: none;
+    padding-left: 10px;
 }
 
 .btn-connexion {
