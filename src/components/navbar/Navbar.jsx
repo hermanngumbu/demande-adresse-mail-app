@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../images/Logo-adn.png'
 import iconAdmin from '../../images/Vector.png'
@@ -17,7 +18,9 @@ const Navbar = () => {
 
           <div className="navbar">
               <div className='left'>
+                <Link to={'./'}>
                   <img src={logo} alt="logo adn" />
+                </Link>
               </div>
               <div className='right'>
                   <div >
