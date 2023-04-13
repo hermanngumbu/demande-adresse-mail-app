@@ -13,21 +13,15 @@ const Navbar = () => {
         navigate('/login')
     }
   return (
-      <>
-          
+      <>      
 
-          <div className="navbar">
-              <div className='left'>
-                <Link to={'./'}>
+          <div className="navigationbar">
+              <div className='logo'>
                   <img src={logo} alt="logo adn" />
-                </Link>
               </div>
-              <div className='right'>
+              <div className='admin'>
                   <div >
-                      <h1 className='text-admin' onClick={handleClick} >Se connecter en tant que admin</h1>
-                  </div>
-                  <div>
-                      <img src={iconAdmin} alt="icone admin" />
+                      <p className='text-admin' onClick={handleClick} >Se connecter en tant que admin</p>
                   </div>
               </div>
           </div>
