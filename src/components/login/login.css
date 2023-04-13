@@ -12,16 +12,16 @@
       border-bottom-left-radius: 0rem;
     }
   }
-
+/* 
 .principal {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
+} */
 
 
-
+/* 
 .carte-title {
     text-align: center;
     font-family: 'Poppins';
@@ -58,13 +58,12 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 30px;
-    /* identical to box height */
 
 
     color: #948E8E;
-}
+} */
 
-.formulaire-input input {
+/* .formulaire-input input {
     border: 1px solid #002777;
     border-radius: 15px;
     width: 433px;
@@ -113,4 +112,4 @@
     .btn-connexion {
         width: 300px;
     }
-}
+} */

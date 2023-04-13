@@ -1,7 +1,14 @@
-import React from 'react'
-import './formdntic.css'
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+import React, { useState } from 'react';
+import MydModalWithGrid from './detailsModal'
+import './formdntic.css';
+import {Button} from 'react-bootstrap';
+
 
 const FormDntic = () => {
+  const [modalShow, setModalShow] = useState(false); 
+  
   return (
     <>
  
@@ -15,11 +22,15 @@ const FormDntic = () => {
               <p>hermanngumbu@gmail.com</p>
             </div>
             <div className='btn-right'>
-              <div>
-                <button className='btn-detail'>Détails</button>
+            <div>
+              <Button variant="success">Approuvé</Button>{' '}
               </div>
               <div>
-                <button className='btn-detail'>Approuver</button>
+              <Button variant="danger">Réjetté</Button>{' '}
+              </div>
+              <div>
+              <Button variant="info" onClick={() => setModalShow(true)}>Détails</Button>{' '}
+              <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
               </div>
             </div>
           </div>
@@ -31,25 +42,14 @@ const FormDntic = () => {
             </div>
             <div className='btn-right'>
               <div>
-                <button className='btn-detail'>Détails</button>
+                <Button variant="success">Approuvé</Button>{' '}
               </div>
               <div>
-                <button className='btn-detail'>Approuver</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="principal-carte">
-          <div className="carte-dntic">
-            <div>
-              <p>hermanngumbu@gmail.com</p>
-            </div>
-            <div className='btn-right'>
-              <div>
-                <button className='btn-detail'>Détails</button>
+              <Button variant="danger">Réjetté</Button>{' '}
               </div>
               <div>
-                <button className='btn-detail'>Approuver</button>
+              <Button variant="info" onClick={() => setModalShow(true)}>Détails</Button>{' '}
+              <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
               </div>
             </div>
           </div>

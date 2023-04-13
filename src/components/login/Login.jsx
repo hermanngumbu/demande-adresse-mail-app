@@ -1,9 +1,11 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 // import Navbar from '../navbar/Navbar'
+import log from '../../images/log.png';
+
 import './login.css'
 
-
+import {Button} from 'react-bootstrap'
 import {
     MDBBtn,
     MDBContainer,
@@ -68,7 +70,7 @@ const Login = () => {
         <MDBRow className='g-0 d-flex align-items-center'>
 
           <MDBCol md='4'>
-            <MDBCardImage src='https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg' alt='phone' className='rounded-t-5 rounded-tr-lg-0' fluid />
+            <MDBCardImage src={log} alt='phone' className='rounded-t-5 rounded-tr-lg-0' fluid />
           </MDBCol>
 
           <MDBCol md='8'>
@@ -83,7 +85,13 @@ const Login = () => {
                 <a href="!#">Mot de passe oublier ?</a>
               </div>
 
-              <MDBBtn className="mb-4 w-100">Se Connecter</MDBBtn>
+              {/* <MDBBtn className="mb-4 w-100">Se Connecter</MDBBtn> */}
+              <div className="d-grid gap-2">
+              <Button variant="primary" size="lg">
+                Block level button
+              </Button>
+              </div>
+             
 
             </MDBCardBody>
 
