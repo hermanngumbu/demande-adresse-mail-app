@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .card {
@@ -16,6 +17,7 @@
     padding-bottom: 25px;
 }
 
+
 .card-title {
     text-align: center;
     font-family: 'Poppins';
@@ -24,7 +26,6 @@
     font-size: 16px;
     line-height: 20px;
     color: #0280FE;
-    margin-top: 25px;
 
 }
 
@@ -81,4 +82,16 @@
     border: none;
     margin-top: 10px;
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 430px) {
+   
+    .form-input input {
+
+        width: 300px;
+    }
+    .btn-connexion {
+        width: 300px;
+    }
 }

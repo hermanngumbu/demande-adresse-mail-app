@@ -75,3 +75,25 @@
 .btn-right .btn-detail:hover{
     background: #B41010;
 }
+
+@media screen and (max-width: 990px) {
+
+    .card-dntic {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+@media screen and (max-width: 548px) {
+    .card-dntic p {
+            font-size: 11px;          
+       
+        }
+                .btn-right .btn-detail {
+               
+                    font-size: 11px;
+                   
+                }
+}
