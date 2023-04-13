@@ -1,0 +1,76 @@
+div.form-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 130px; */
+  }
+  
+  form {
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 hsl(0, 0%, 74%);
+    padding: 20px;
+  }
+
+  button.btn.btn-primary {
+    background-color: #0280FE;;
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px 0 hsl(0, 0%, 74%);
+    text-align: center;
+  }
+  
+  button.btn.btn-primary:hover {
+    color: black;
+    background-color: white;
+    transform: scale(1.03);
+    box-shadow: 0 0 10px 0 hsl(0, 0%, 74%);
+  }
+  
+  .form-control {
+    border: 1px solid hsl(0, 0%, 74%);
+    border-radius: 5px;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    box-shadow: 0 0 10px 0 hsl(0, 0%, 74%);
+    border: none;
+  }
+  
+  div.form-floating > .form-control {
+    height: 55px;
+  }
+ 
+  .was-validated .form-control {
+    transition: none;
+  }
+  h2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #002777;
+  }
+  h1{
+    width: 900px;
+    margin: auto;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 72px;
+    text-align: center;
+
+    color: #0280FE;
+  }
+  .title{
+    margin-bottom: 120px;
+  }

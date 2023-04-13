@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import Navbar from '../navbar/Navbar'
+// import Navbar from '../navbar/Navbar'
 import './login.css'
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
     }
   return (
       <>
-          <Navbar />
+       
           <div className='main'>
               <div className='card'>
                   <div className="card-body">

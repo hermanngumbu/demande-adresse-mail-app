@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from '../navbar/Navbar'
+// import Navbar from '../navbar/Navbar'
 
 const FormDntic = () => {
   return (
       <>
-          <Navbar />
+         
           
       </>
   )
