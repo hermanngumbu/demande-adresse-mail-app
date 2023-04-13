@@ -1,36 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Poppins:wght@400;700&family=Ubuntu:wght@300&display=swap');
 
 
-.navbar {
+.navigationbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 50px;
 }
-.left {
-    margin-left: 20px;
+
+.navigationbar .logo {
     margin-top: 20px;
+    margin-left: 20px;
 }
 
-.right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    
-}
-
-.right .text-admin {
+.navigationbar .admin p {
     font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 13px;
-        line-height: 20px;
-        /* identical to box height */  
-    
-        color: #0E0909;
-        margin-right: 15px;
-        cursor: pointer;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height */
+
+    color: #0E0909;
+    margin-right: 15px;
+    cursor: pointer;
 }
-.right .text-admin:hover {
+
+.navigationbar .admin p:hover {
     color: #B41010
 }
