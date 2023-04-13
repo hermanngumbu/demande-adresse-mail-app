@@ -21,8 +21,9 @@ function App() {
 
   return (
     <>
-    <div className='title'>
-    <h1>Fiche  de demande d’adresse mail présidence RDC</h1>
+   
+    <div className="title">  
+    <p class="h1 text-center">Fiche  de demande d’adresse mail présidence RDC</p>
     </div>
     <div className='form-wrapper'>
       <Form noValidate validated={validated}>

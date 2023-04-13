@@ -59,18 +59,11 @@ div.form-wrapper {
 
     color: #002777;
   }
-  h1{
-    width: 900px;
-    margin: auto;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 72px;
-    text-align: center;
-
+  p{
     color: #0280FE;
   }
   .title{
+    margin-top: 140px;
     margin-bottom: 120px;
   }
+  
