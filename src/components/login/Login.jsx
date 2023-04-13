@@ -11,9 +11,7 @@ const Login = () => {
     }
   return (
       <>
-          <Navbar />
           <div className='main'>
-              <div className='card'>
                   <div className="card-body">
                       <div>
                           <h1 className='card-title'>Authentification</h1>
@@ -43,7 +41,7 @@ const Login = () => {
                           </form>
                       </div>
                  </div>
-              </div>
+              
           </div>
       </>
   )
