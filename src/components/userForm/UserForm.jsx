@@ -18,9 +18,9 @@ function App() {
   const generateEmails = () => {
     const emails = [];
     if (prenom && nom) {
-      emails.push(`${prenom}.${nom}@example.com`);
-      emails.push(`${prenom[0]}.${nom}@example.com`);
-      emails.push(`${prenom}${nom[0]}@example.com`);
+      emails.push(`${prenom}.${nom}@presidence.cd`);
+      emails.push(`${prenom[0]}.${nom}@presidence.cd`);
+      emails.push(`${prenom}${nom[0]}@presidence.cd`);
     }
     return emails;
   };
