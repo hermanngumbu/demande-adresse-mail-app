@@ -4,6 +4,7 @@ import Login from "./components/login/Login";
 import UserForm from "./components/userForm/UserForm";
 import Navbar from "./components/navbar/Navbar";
 import Rh from "./components/rh/Rh";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/validation-rh" element={<Rh />} />
         <Route path="/validation-dntic" element={<FormDntic />} />
+        <Route path="*" element={<NotFoundPage />} />
         
     </Routes>
     </div>
