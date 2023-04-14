@@ -30,7 +30,7 @@ const Login = () => {
         }
         axios.post("http://localhost:4000/api/auth/login", body)
           .then((response) => {
-         
+            localStorage.setItem("token", JSON.stringify(response.data.token.token))
             if (response.data.token.user.name === "Dntic_User") {
               navigate("/validation-dntic")
             } else if (response.data.token.user.name === "Rh_User") {
