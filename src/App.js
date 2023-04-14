@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import FormDntic from "./components/dntic/FormDntic";
 import Login from "./components/login/Login";
 import UserForm from "./components/userForm/UserForm";
