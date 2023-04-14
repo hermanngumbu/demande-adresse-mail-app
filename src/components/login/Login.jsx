@@ -88,7 +88,7 @@ const Login = () => {
               {/* <MDBBtn className="mb-4 w-100">Se Connecter</MDBBtn> */}
               <div className="d-grid gap-2">
               <Button variant="primary" size="lg">
-                Block level button
+                Se Connecter
               </Button>
               </div>
              
