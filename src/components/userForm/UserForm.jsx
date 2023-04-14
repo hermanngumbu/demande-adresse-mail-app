@@ -29,7 +29,11 @@ function App() {
      setValue('mail2', generateEmails()[1])
      setValue('mail3', generateEmails()[2])
    }
-  
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
   const submitData = (data) => {
     let body = {
       name: data.nom,
@@ -47,6 +51,7 @@ function App() {
     axios.post("http://localhost:4000/api/demands", body)
       .then((response) => {
         console.log(response)
+        togglePopup();
       })
       .catch((error) => { 
         console.log(error)
@@ -58,6 +63,7 @@ function App() {
     //     }
     // setValidated(true);
     reset()
+
       }
 
 
@@ -190,7 +196,15 @@ function App() {
           </Row>
           
         </Container>
-      </Form>
+        </Form>
+        {isOpen && (
+          <div className="popup">
+            <div className="popup-inner">
+              <h2>Merci d'avoir soumis le formulaire</h2>
+              <button onClick={togglePopup}>Fermer</button>
+            </div>
+          </div>
+        )}
     </div>
     </>
   );

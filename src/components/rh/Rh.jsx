@@ -26,7 +26,7 @@ const Rh = () => {
             <div className="principal-carte" key={demand.id}>
                 <div className="carte-dntic">
                     <div>
-                        <p>{ demand.email_format1}</p>
+                        <label>{ demand.email_format1}</label>
                         <p>{ demand.email_format2}</p>
                         <p>{ demand.email_format3}</p>
                       
