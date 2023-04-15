@@ -1,71 +1,79 @@
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import React, { useEffect, useState } from 'react';
-import MydModalWithGrid from '../dntic/detailsModal'
+import React, { useEffect } from 'react';
 // import './formdntic.css';
-import { Button } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import axios from 'axios';
 
-const Rh = () => {
-    const [modalShow, setModalShow] = useState(false);
-
-    const [demands, setDemands] = useState([])
-   // const [isDisabled, setIsDisabled] = useState(false);
-
+const Rh = ({
+    demands,
+    setDemands
+}) => {
 
     useEffect(() => {
         axios.get("http://localhost:4000/api/demands")
             .then((response) => {
-               setDemands([...response.data])
+                setDemands([...response.data])
             })
-            .catch((error) => { 
+            .catch((error) => {
                 console.log(error)
             })
-    }, [])
-    
-    const handleClick = (email, demandId,event) => {
-        
-        console.log(demandId,email)
-        
+    },[])
+
+    const handleApprouver = (email, demandId, event) => {
+
+        console.log(demandId, email)
+
         let body = {
             id: demandId,
             chosenEmailFormat: email
         }
         event.target.disabled = true
-        axios.post(`http://localhost:4000/api/demands/${demandId}/choose-email`,body)
-            .then((response) => { 
+        axios.post(`http://localhost:4000/api/demands/${demandId}/choose-email`, body)
+            .then((response) => {
                 console.log(response)
             })
-            .catch((error) => { 
+            .catch((error) => {
                 console.log(error)
             })
-        
+
     }
 
-    const allDemands = demands.map((demand) => {
+    const handleDelete = async (id) => {
+          
+        try {
+            const index = demands.findIndex((item) => item.id === id)
+            if (index !== -1) {
+                demands.splice(index, 1)
+                setDemands([...demands])
+            }
+            await axios.delete(`http://localhost:4000/api/demands/${id}`)
+         
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
+    const allDemands = demands?.map((item) => {
         return (
-            <div className="principal-carte" key={demand.id}>
-                <div className="carte-dntic">
-                    <div>
-                        <p>{ demand.email_format1}</p>
-                        <p>{ demand.email_format2}</p>
-                        <p>{ demand.email_format3}</p>
-                      
-                    </div>
-                    <div className='btn-right'>
-                        <div>
-                            <Button  variant="success" onClick={ (event)=> handleClick(demand.email_format3, demand.id,event)}>Approuvé</Button>
-                        </div>
-                        <div>
-                            <Button variant="danger">Réjetté</Button>{' '}
-                        </div>
-                        <div>
-                            <Button variant="info" onClick={() => setModalShow(true)}>Détails</Button>{' '}
-                            <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.lastname}</td>
+                <td>{item.firstname}</td>
+                <td>{item.email}</td>
+                <td>{item.fonction}</td>
+                <td>{item.service}</td>
+                <td>{item.numtel}</td>
+                <td>
+                    <Button variant="primary" className='btn-sm'  onClick={() => handleApprouver(item.id)}>
+                        Approuver
+                    </Button>
+                    <Button variant="danger" className='btn-sm ms-1'  onClick={() => handleDelete(item.id)}>
+                        Rejeter
+                    </Button>                  
+                </td>
+            </tr>
+
         )
     })
     return (
@@ -73,11 +81,29 @@ const Rh = () => {
 
             <div className='principal-body'>
                 <div>
-                    <h1 className='principal-title'>Bienvenu(e) Raphael Nathan</h1>
+                    <h1 className='principal-title'>Bienvenu Raphael Nathan</h1>
                 </div>
-                {
-                    allDemands
-               }
+                <div className="container">
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Post-Nom</th>
+                                <th>Prénom</th>
+                                <th>Email privé</th>
+                                <th>Fonction</th>
+                                <th>Service</th>
+                                <th>Numéro Téléphone</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                allDemands
+                            }
+                        </tbody>
+                    </Table>
+               </div>
             </div>
         </>
     )
