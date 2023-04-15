@@ -73,7 +73,7 @@ const Rh = ({
 
             <div className='principal-body'>
                 <div>
-                    <h1 className='principal-title'>Bienvenu Raphael Nathan</h1>
+                    <h1 className='principal-title text-center'>Bienvenu Raphael Nathan</h1>
                 </div>
                 <div className="container">
                     <Table striped bordered hover>

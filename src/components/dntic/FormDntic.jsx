@@ -1,66 +1,77 @@
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-import React, { useEffect, useState } from 'react';
-import MydModalWithGrid from './detailsModal'
-import './formdntic.css';
-import {Button} from 'react-bootstrap';
 import axios from 'axios';
+import React, { useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 
 
-const FormDntic = () => {
-  const [modalShow, setModalShow] = useState(false);
-
-
-  const [demands, setDemands] = useState([])
-  // const [isDisabled, setIsDisabled] = useState(false);
-
-
-  useEffect(() => {
-    axios.get("http://localhost:4000/api/demands/getDemandsWithEmailChoose")
-      .then((response) => {
-        setDemands([...response.data])
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }, [])
-  const handleClick = (event) => {
-    event.target.disabled = true
-  }
-  const allDemands = demands.map((demand) => {
+const FormDntic = ({
+  demands,
+  setDemands
+}) => {
+  const { register, handleSubmit } = useForm();
+    
+  useEffect(  () => {
+      
+    async function getDemands() {
+       try {
+         let response = await axios.get("http://localhost:4000/api/demands")
+         setDemands([...response.data])
+       } catch (error) {
+         console.log(error)
+       }
+    }
+    
+      getDemands()
+   },[])
+   
+  const emails = demands.map(demand => {
     return (
-      <div className="principal-carte" key={demand.id}>
-        <div className="carte-dntic">
-          <div>
-            <p>{demand.email_choose}</p>
-
-          </div>
-          <div className='btn-right'>
-            <div>
-              <Button variant="success" onClick={(event) => handleClick( event)}>Approuvé</Button>
-            </div>
-            <div>
-              <Button variant="info" onClick={() => setModalShow(true)}>Détails</Button>{' '}
-              <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+      <div className='mt-3'>
+        <input type="radio"  value={demand.email_format1} {...register("email")} />
+        <label htmlFor='email' className='ms-2' >{demand.email_format1}</label><br />
+        <input type="radio"  value={demand.email_format2} {...register("email")} />
+        <label htmlFor='email' className='ms-2'>{demand.email_format2}</label><br />
+        <input type="radio"  value={demand.email_format3} {...register("email")} />
+        <label htmlFor='email' className='ms-2' >{demand.email_format3}</label><br />
+        <div className='d-flex'>
+          <Button type="submit"  className='mt-2'>Valider</Button>
+          <Button onClick={()=>details(demand)} className='mt-2 ms-3'>Détails</Button>
+           </div>
+       </div>
+     )
   })
-  return (
-    <>
- 
-      <div className='principal-body'>
-        <div>
-          <h1 className='principal-title'>Bienvenu(e) Meschack Kapanga</h1>
-        </div>
-        {
-          allDemands
-         }
-      </div>
-    </>
-  )
-}
 
-export default FormDntic
+  const valider = async (data) => {
+
+    console.log(data)
+    
+  //   let body = {
+  //     id: id,
+  //     chosenEmailFormat : data.email 
+  //   }
+       
+  //   try {
+    
+  //     await axios.post(`http://localhost:4000/api/demands/${id}/choose-email`,body)
+  // } catch (error) {
+  //   console.log("une erreur",error)
+  // }
+  }
+  
+  const details = (demande) => {
+      console.log(demande)
+  }
+  return (
+    <div className='container col-4'>
+    
+          <form onSubmit={handleSubmit(valider)} >
+        {
+          emails
+           }
+          
+          </form>
+    </div>
+  );
+};
+
+export default FormDntic;
