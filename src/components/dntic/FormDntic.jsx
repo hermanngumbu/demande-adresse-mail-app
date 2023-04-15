@@ -2,13 +2,17 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 
 const FormDntic = ({
   demands,
-  setDemands
+  setDemands,
+  setOneDemand,
+  oneDemand
 }) => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate()
     
   useEffect(  () => {
       
@@ -26,7 +30,7 @@ const FormDntic = ({
    
   const emails = demands.map(demand => {
     return (
-      <div className='mt-3'>
+      <div className='mt-3' key={demand.id}>
         <input type="radio"  value={demand.email_format1} {...register("email")} />
         <label htmlFor='email' className='ms-2' >{demand.email_format1}</label><br />
         <input type="radio"  value={demand.email_format2} {...register("email")} />
@@ -59,7 +63,18 @@ const FormDntic = ({
   }
   
   const details = (demande) => {
-      console.log(demande)
+
+    setOneDemand({
+      nom: demande.name,
+      prenom: demande.firstname,
+      postnom: demande.lastname,
+      fonction: demande.fonction,
+      service: demande.service,
+      phone: demande.numtel,
+      email: demande.email
+
+        })    
+      navigate("/details" )
   }
   return (
     <div className='container col-4'>
