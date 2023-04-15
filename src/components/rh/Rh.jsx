@@ -20,23 +20,15 @@ const Rh = ({
             })
     },[])
 
-    const handleApprouver = (email, demandId, event) => {
-
-        console.log(demandId, email)
-
-        let body = {
-            id: demandId,
-            chosenEmailFormat: email
+    const handleApprouver = async (id, event) => {
+               
+        try {
+            event.target.disabled = true
+            await axios.put(`http://localhost:4000/api/demands/${id}`)
+        } catch (error) {
+            console.log(error)
         }
-        event.target.disabled = true
-        axios.post(`http://localhost:4000/api/demands/${demandId}/choose-email`, body)
-            .then((response) => {
-                console.log(response)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-
+          
     }
 
     const handleDelete = async (id) => {
@@ -65,7 +57,7 @@ const Rh = ({
                 <td>{item.service}</td>
                 <td>{item.numtel}</td>
                 <td>
-                    <Button variant="primary" className='btn-sm'  onClick={() => handleApprouver(item.id)}>
+                    <Button variant="primary" className='btn-sm'  onClick={(event) => handleApprouver(item.id,event)}>
                         Approuver
                     </Button>
                     <Button variant="danger" className='btn-sm ms-1'  onClick={() => handleDelete(item.id)}>
