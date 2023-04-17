@@ -101,6 +101,9 @@ const FormDntic = ({
   }
   return (
     <div className='container col-4'>
+      <div>
+        <h1 className='principal-title text-center'>DNTIC</h1>
+      </div>
     
           <form >
         {
