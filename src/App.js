@@ -17,6 +17,7 @@ function App() {
     fonction: "",
     phone: "",
     email: "",
+    date: "",
   })
   return (
     <div>

@@ -56,13 +56,8 @@ function App() {
       .catch((error) => { 
         console.log(error)
       })
-    //     const form = event.currentTarget;
-    //     if (form.checkValidity() === false) {
-    //       event.preventDefault();
-    //       event.stopPropagation();
-    //     }
-    // setValidated(true);
-    reset()
+  
+    // reset()
 
       }
 

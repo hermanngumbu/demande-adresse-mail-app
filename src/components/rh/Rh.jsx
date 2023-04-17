@@ -11,8 +11,9 @@ const Rh = ({
 }) => {
 
     useEffect(() => {
-        axios.get("http://localhost:4000/api/demands")
+        axios.get("http://localhost:4000/api/demands/non-valides")
             .then((response) => {
+                console.log(response.data)
                 setDemands([...response.data])
             })
             .catch((error) => {
@@ -24,7 +25,7 @@ const Rh = ({
                
         try {
             event.target.disabled = true
-            await axios.put(`http://localhost:4000/api/demands/${id}`)
+            await axios.put(`http://localhost:4000/api/demands/${id}/validate`)
         } catch (error) {
             console.log(error)
         }

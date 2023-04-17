@@ -4,7 +4,8 @@ import { Form, Table } from 'react-bootstrap'
 const Details = ({
     oneDemand
 }) => {
-
+    const d = new Date(oneDemand.date)
+    let dateFormat = d.getHours() + ":" + d.getMinutes() + ", " + d.toDateString()
 
   return (
       <>
@@ -23,6 +24,7 @@ const Details = ({
                               <th>Fonction</th>
                               <th>Service</th>
                               <th>Numéro Téléphone</th>
+                              <th>Date de soumission</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -34,8 +36,8 @@ const Details = ({
                               <td>{oneDemand.fonction}</td>
                               <td>{oneDemand.service}</td>
                               <td>{oneDemand.phone}</td>
-                              <td>
-                              </td>
+                              <td>{dateFormat}</td>
+                              
                           </tr>
                       </tbody>
                   </Table>
